@@ -13,7 +13,7 @@
     "logistics",
     "map"
   ],
-  "author": "Abdulazeem Shaikh",
+
   "license": "ISC",
   "devDependencies": {
     "electron": "^28.2.2",
