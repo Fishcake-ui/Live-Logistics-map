@@ -1,4 +1,4 @@
-// Credits: 9e2fdb788f7d0cefa8a65613d780f676bea82fddbb7cc9a066edd8122ddec245
+
 const map = L.map('map').setView([0, 0], 2);
 
 const lightLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,6 +38,7 @@ const drawControl = new L.Control.Draw({
 
 map.addControl(drawControl);
 
+
 // Prompt for tags when a line is created
 map.on(L.Draw.Event.CREATED, function (event) {
   const layer = event.layer;
@@ -48,6 +49,8 @@ map.on(L.Draw.Event.CREATED, function (event) {
     layer.tags = tags; // store tags on layer for later reference
   }
   featureGroup.addLayer(layer);
+
+
 });
 
 // Example: click a line to show its tags in alert
@@ -121,6 +124,7 @@ const applyBtn = document.getElementById('apply-filters');
 const themeSelect = document.getElementById('theme-select');
 const logoVideo = document.getElementById('logo-video');
 
+
 if (logoVideo) {
   logoVideo.addEventListener('mouseenter', () => logoVideo.play());
   logoVideo.addEventListener('mouseleave', () => {
@@ -167,6 +171,7 @@ function applyFilters() {
     const matchesDate = n.date.getTime() >= cutoff;
     n.visible = matchesCountry && matchesDate;
   });
+
   if (themeSelect && themeSelect.value === 'heatmap') {
     applyTheme();
   } else {

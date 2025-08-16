@@ -1,4 +1,4 @@
-// Credits: 9e2fdb788f7d0cefa8a65613d780f676bea82fddbb7cc9a066edd8122ddec245
+
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
