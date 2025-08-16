@@ -1,0 +1,26 @@
+{
+  "name": "live-logistics-map",
+  "version": "1.0.0",
+  "description": "Leaflet map that allows drawing routes and tagging them.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder -w",
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "keywords": [
+    "leaflet",
+    "logistics",
+    "map"
+  ],
+  "author": "Abdulazeem Shaikh",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.2.2",
+    "electron-builder": "^24.6.3"
+  },
+  "build": {
+    "appId": "com.logistics.map",
+    "productName": "Live Logistics Map"
+  }
+}

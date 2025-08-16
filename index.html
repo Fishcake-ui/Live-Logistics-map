@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Credits: Abdulazeem Shaikh -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Logistics Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+oUXSviwHd0x3if52QT11YGpfsVWH3QzUFb7FXq24=" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+  <style>
+    body, html { margin:0; padding:0; height:100%; }
+    body { position: relative; }
+    #map { height:100%; }
+    #news {
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:white;
+      padding:8px;
+      max-width:300px;
+      max-height:200px;
+      overflow-y:auto;
+      z-index:1000;
+      border-radius:4px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    }
+    #news h3 { margin-top:0; font-size:16px; }
+    #news ul { list-style:none; padding-left:0; }
+    #news li { margin-bottom:6px; font-size:14px; cursor:pointer; }
+    #news a { text-decoration:none; }
+    .tag-input {
+      display:flex;
+      flex-direction:column;
+    }
+    .tag-input label {
+      margin-bottom:4px;
+    }
+    #logo {
+      position:absolute;
+      top:10px;
+      left:10px;
+      z-index:1001;
+      cursor:pointer;
+    }
+    #logo video {
+      width:120px;
+      height:auto;
+      display:block;
+    }
+    #filters {
+      position:absolute;
+      top:90px;
+      left:10px;
+      background:white;
+      padding:8px;
+      z-index:1000;
+      border-radius:4px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="news"><h3>Logistics News</h3><ul id="news-list"></ul></div>
+  <div id="logo">
+    <video id="logo-video" muted loop preload="metadata" src="https://pbs.twimg.com/animated_gif/1875079018449436672/vid/640x360/Dux4spIBvQrM17Yq.mp4"></video>
+  </div>
+  <div id="filters">
+    <select id="country-filter"></select>
+    <select id="time-filter">
+      <option value="day">Last Day</option>
+      <option value="month" selected>Last Month</option>
+      <option value="year">Last Year</option>
+    </select>
+    <select id="theme-select">
+      <option value="light" selected>Light</option>
+      <option value="dark">Dark</option>
+      <option value="satellite">Satellite</option>
+      <option value="heatmap">Heatmap</option>
+    </select>
+    <input id="route-tag-filter" type="text" placeholder="Route tag" />
+    <button id="apply-filters">Apply Filters</button>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j7kGStNqd7KPv1yg8Bz9shAzG+VQJ5xcp1gnusM=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
